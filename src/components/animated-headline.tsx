@@ -6,9 +6,10 @@ import { gsap } from "gsap"
 interface AnimatedHeadlineProps {
   text: string
   className?: string
+  style?: React.CSSProperties
 }
 
-export function AnimatedHeadline({ text, className = "" }: AnimatedHeadlineProps) {
+export function AnimatedHeadline({ text, className = "", style }: AnimatedHeadlineProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export function AnimatedHeadline({ text, className = "" }: AnimatedHeadlineProps
   const words = text.split(' ')
   
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={containerRef} className={className} style={style}>
       {words.map((word, wordIndex) => (
         <div 
           key={wordIndex} 
