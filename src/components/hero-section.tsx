@@ -19,8 +19,8 @@ export function HeroSection() {
       const script = document.createElement("script")
       script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.31/dist/unicornStudio.umd.js"
       script.onload = function() {
-        if (!window.UnicornStudio.isInitialized) {
-          UnicornStudio.init()
+        if (window.UnicornStudio && !window.UnicornStudio.isInitialized) {
+          (window as any).UnicornStudio.init()
           window.UnicornStudio.isInitialized = true
         }
       }
